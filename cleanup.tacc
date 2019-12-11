@@ -1,0 +1,4 @@
+#!/bin/bash
+rm *.mat
+rm *.out
+rm *.err
