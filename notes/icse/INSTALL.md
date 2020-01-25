@@ -1,11 +1,7 @@
 # Installation
 
-- We uploaded a snapshot of the tool with required 3rd-party libraries in [Zenodo](https://). Simply unzip the contents somewhere; we will refer to this location as `installation path`.
+- We uploaded a snapshot of the tool with required 3rd-party libraries in [Zenodo](https://zenodo.org/record/3627640). Simply unzip the contents somewhere; we will refer to this location as `installation path`.
 - For future updates, please check out the [homepage](https://github.com/shafiul/slemi) (advanced users only; not required for ICSE 2020 artifacts evaluation).
-
-## Running SLEMI and Other Scripts
-
-- Open MATLAB and navigate to the directory where you have installed the tool.
 
 # Basic Usage
 
@@ -16,7 +12,18 @@ Please watch the 5-minute video demo from the [README.md](README.md) file before
 Here, we will pre-process some Simulink models as this is the first step before performing any actual EMI-based mutation. For convenience, we have provided a small corpus with some Simulink models.
 
 - Copy the `reproduce/samplecorpus` directory somewhere in your filesystem, and set this path to two environment variables: `COVEXPEXPLORE` and `SLSFCORPUS`. Models from this corpus will be used for pre-processing and eventually generating mutants.
+- **WARNING:** Environment variables must be changed before opening MATLAB. If MATLAB is already open before changing the environment variables, please restart MATLAB.
 - Open MATLAB, navigate to the `installation path` and execute `covexp.covcollect()` in the MATLAB command-prompt.
+
+Your output will look like:
+
+```
+>> covexp.covcollect()
+BaseCovExp.BaseCovExp 2020-01-25 11:28:23,833 INFO     Calling BaseCovExp constructor
+ExploreCovExp.generate_model_list 2020-01-25 11:28:23,938 INFO     Generating model list from THE_PATH_WHERE_YOU_COPIED_SAMPLE_CORPUS
+ExploreCovExp.generate_model_list 2020-01-25 11:28:24,733 INFO     Generated list of 3 models
+BaseCovExp.do_analysis 2020-01-25 11:28:24,785 INFO     Loading Simulink...
+```
 
 
 For complete documentation please check out: 
@@ -38,4 +45,6 @@ For complete documentation please check out:
 
 ### Reports
 
-Upon completion, each of the commands introduced above will present an overview of the experiment (e.g., result of differential testing). You can also manually run `covexp.addpaths(); emi.report()` in the MATLAB command-prompt to get detailed report.
+- Upon completion, each of the commands introduced above will present an overview of the experiment (e.g., result of differential testing). You can also manually run `covexp.addpaths(); emi.report()` in the MATLAB command-prompt to get detailed report.
+
+- Where are my mutants? They are saved in the `emi_results` directory, go ahead and open a generated mutant in MATLAB! Mutants have `seedmodel_1_1` suffix (the numbers after the underscore are some unique identifiers). You can also open the seed model from the `sample corpus` to inspect manually. 
