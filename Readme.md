@@ -25,6 +25,9 @@ Please use `git` to properly install all third-party dependencies:
     git submodule update --init
     matlab # Opens MATLAB
 
+## Hello, World!
+
+[Check out](notes/icse/) tutorials to get started!
 
 ## Randomly Generated Seed Models
 
