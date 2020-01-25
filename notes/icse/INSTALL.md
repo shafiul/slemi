@@ -9,7 +9,7 @@
 
 # Basic Usage
 
-Please watch the 5-minute video demo from the [READE.md](README.md) file before using the tool!
+Please watch the 5-minute video demo from the [README.md](README.md) file before using the tool!
 
 ## Pre-processing and Analyzing
 
@@ -21,7 +21,7 @@ Here, we will pre-process some Simulink models as this is the first step before 
 
 For complete documentation please check out: 
 
-- The [covcfg.m](https://github.com/shafiul/slemi/tree/master/%2Bcovexp) configuration file itself which is well-documented.
+- The [covcfg.m](https://github.com/shafiul/slemi/blob/master/covcfg.m) configuration file itself which is well-documented.
 - The [+covexp/Readme.md](https://github.com/shafiul/slemi/tree/master/%2Bcovexp) file. 
 
 
@@ -38,4 +38,4 @@ For complete documentation please check out:
 
 ### Reports
 
-After completion, each of the commands introduced above will present an overview of the experiment (e.g., result of differential testing). You can also manually run `emi.report` in the MATLAB command-prompt to get detailed report.
+Upon completion, each of the commands introduced above will present an overview of the experiment (e.g., result of differential testing). You can also manually run `covexp.addpaths(); emi.report()` in the MATLAB command-prompt to get detailed report.
