@@ -8,12 +8,14 @@ classdef cfg
         % How many exepriments to run. In each experiment it's recommended
         % to create only one mutant, although you can create multiple. Some
         % features may break for multiple mutants per experiment.
-        NUM_MAINLOOP_ITER = 50; 
+        NUM_MAINLOOP_ITER = 1; 
         
-        PARFOR = true;
+        % Generate mutants in parallel
+        PARFOR = false;
         
         % Non-repeatable experiments, recommended, specially for TACC
-        RNG_SHUFFLE = true;     
+        % Set to true to generate random mutants every time
+        RNG_SHUFFLE = false;     
         
         % Break from the main loop if any model mutation errors
         STOP_IF_ERROR = false;
@@ -70,13 +72,14 @@ classdef cfg
         
         % Pre-process phases are not run when you invoke `emi.go`. They are
         % invoked by running experiment#3 using `covexp.covcollect`
+        % Comment/uncomment to enable or disable mutation strategies
         
         MUTATOR_DECORATORS = {
             @emi.decs.FixSourceSampleTimes                     % Base Mutation
             @emi.decs.TypeAnnotateEveryBlock                  % Base Mutation
             @emi.decs.TypeAnnotateByOutDTypeStr          % Base Mutation
             @emi.decs.DeleteDeadAddSaturation                % Dead Mutation
-            @emi.decs.LiveMutation                                      % Live Mutation
+%             @emi.decs.LiveMutation                                      % Live Mutation
             };
         
         % Live mutation operations and their weights
@@ -98,7 +101,7 @@ classdef cfg
         % running this tool 24/7 and doing new stuff everytime the script
         % is run.
         
-        LOAD_RNG_STATE = true;
+        LOAD_RNG_STATE = false;
         INTERACTIVE_MODE = false;
         
         % If any error occurs, replicate the experiment in next run. Not

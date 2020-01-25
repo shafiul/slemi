@@ -25,11 +25,11 @@ classdef covcfg < handle
         % Set false when aggregating results or debugging. If set to true,
         % will  process inidivual models paralelly. Results will be cached
         % for each file
-        PARFOR = true;
+        PARFOR = false;
         
         % Merge results for all models into a big file DURING experiments.
         % Ignored if PARFOR or MERGE_RESULTS_ONLY
-        MERGE_RESULTS_ONLINE = false;
+        MERGE_RESULTS_ONLINE = true;
         
         % If you have not merged results online or used PARFOR, 
         % use this to just merge the
@@ -112,8 +112,8 @@ classdef covcfg < handle
         % datatype of the newly added data-type converters
         
         % Will only run these experiments. Elements are index of EXPERIMENTS
-        DO_THESE_EXPERIMENTS = [1 2 8 3]; % Multiple experiments
-%         DO_THESE_EXPERIMENTS = 8;   % Single experiment
+%         DO_THESE_EXPERIMENTS = [1 2 8 3]; % Multiple experiments
+        DO_THESE_EXPERIMENTS = 5;   % Single experiment
         
         %% Others
         

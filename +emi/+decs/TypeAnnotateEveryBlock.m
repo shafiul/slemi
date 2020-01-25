@@ -23,7 +23,7 @@ classdef TypeAnnotateEveryBlock < emi.decs.DecoratedMutator
                 ret = obj.mutant.add_DTC_before_block(blkname, sources, self_as_destination);
             end
             
-            cellfun(@helper,target_blocks);
+            cellfun(@helper,target_blocks, 'UniformOutput', false);
         end
     end
 end
